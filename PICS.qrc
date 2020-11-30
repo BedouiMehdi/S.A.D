@@ -3,5 +3,8 @@
         <file>White.jpg</file>
         <file>Home.png</file>
         <file>Home1.png</file>
+        <file>colis.png</file>
+        <file>livraison.jpg</file>
+        <file>livraison1.jpg</file>
     </qresource>
 </RCC>

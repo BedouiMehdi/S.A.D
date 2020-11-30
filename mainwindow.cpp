@@ -32,14 +32,35 @@ void MainWindow::on_pushButton_clicked()
         QString assurance=ui->comboBox->currentText();
         QString poids=ui->comboBox_2->currentText();
 
-        colis A(numcolis,depart,destination,date_envoi,assurance,poids);
-        bool test=A.ajouter();
-        if (test){
-            QMessageBox::information(nullptr, QObject::tr("OK"),
-                                     QObject::tr("Ajout Effectué\n""Click Cancel to exit")
+
+         if(numcolis<1000){
+            QMessageBox::critical(nullptr, QObject::tr("OK"),
+                                     QObject::tr("numéro du colis invalide\n""Click Cancel to exit")
                                      ,QMessageBox::Cancel);
         }
-        show_tables();
+         else if(depart.isEmpty())
+         {
+             QMessageBox::critical(nullptr, QObject::tr("OK"),
+                                      QObject::tr("Veuillez indiquer le depart\n""Click Cancel to exit")
+                                      ,QMessageBox::Cancel);
+         }
+        else if(destination.isEmpty()){
+            QMessageBox::critical(nullptr, QObject::tr("OK"),
+                                     QObject::tr("Veuillez indiquer la destination\n""Click Cancel to exit")
+                                     ,QMessageBox::Cancel);
+
+        }
+        else{
+            colis A(numcolis,depart,destination,date_envoi,assurance,poids);
+            bool test=A.ajouter();
+            if (test){
+                QMessageBox::information(nullptr, QObject::tr("OK"),
+                                         QObject::tr("Ajout Effectué\n""Click Cancel to exit")
+                                         ,QMessageBox::Cancel);
+            }
+            show_tables();
+        }
+
 }
 void MainWindow::show_tables(){
 
@@ -161,14 +182,27 @@ void MainWindow::on_pushButton_5_clicked()
     QString distance=ui->comboBox_4->currentText();
     QString etat=ui->comboBox_5->currentText();
 
-    livraison A(codelivraison,livreur,duree,distance,etat);
-    bool test=A.ajouter();
-    if (test){
-        QMessageBox::information(nullptr, QObject::tr("OK"),
-                                 QObject::tr("Ajout Effectué\n""Click Cancel to exit")
+     if(codelivraison<1000){
+        QMessageBox::critical(nullptr, QObject::tr("OK"),
+                                 QObject::tr("Veuillez indiquer un code de livraison valide\n""Click Cancel to exit")
                                  ,QMessageBox::Cancel);
     }
+     else if(livreur.isEmpty())
+     {
+         QMessageBox::critical(nullptr, QObject::tr("OK"),
+                                  QObject::tr("Veuillez indiquer le livreur\n""Click Cancel to exit")
+                                  ,QMessageBox::Cancel);
+     }
+    else{
+        livraison A(codelivraison,livreur,duree,distance,etat);
+        bool test=A.ajouter();
+        if (test){
+            QMessageBox::information(nullptr, QObject::tr("OK"),
+                                     QObject::tr("Ajout Effectué\n""Click Cancel to exit")
+                                     ,QMessageBox::Cancel);
+        }
     show_tables1();
+    }
 }
 
 void MainWindow::show_tables1(){
@@ -248,4 +282,14 @@ void MainWindow::on_pushButton_8_clicked()
     livraison mc(selected1,s1,s2,s3,s4);
         mc.modifier(selected1);
         show_tables1();
+}
+
+void MainWindow::on_pushButton_12_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(1);
+}
+
+void MainWindow::on_pushButton_11_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(2);
 }

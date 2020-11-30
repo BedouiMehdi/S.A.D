@@ -1,5 +1,5 @@
 #include "colis.h"
-
+#include <QMessageBox>
 
 colis::colis()
 {
@@ -40,6 +40,7 @@ QString res= QString::number(numcolis);
  query.bindValue(":date_envoi",date_envoi);
  query.bindValue(":assurance",assurance);
  query.bindValue(":poids",poids);
+
 
 return query.exec();
 }

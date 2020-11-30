@@ -251,12 +251,12 @@ border-color: darkblue;</string>
       </property>
       <item>
        <property name="text">
-        <string>Assuré</string>
+        <string>Sans assurance</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>Non assuré</string>
+        <string>Avec assurance</string>
        </property>
       </item>
      </widget>
@@ -557,6 +557,23 @@ border-color: darkblue;</string>
         </widget>
        </item>
       </layout>
+     </widget>
+     <widget class="QPushButton" name="pushButton_11">
+      <property name="geometry">
+       <rect>
+        <x>820</x>
+        <y>320</y>
+        <width>81</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">image: url(:/PICS/livraison1.jpg);
+border: none</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="page_2">
@@ -902,6 +919,23 @@ border-color: darkblue;</string>
       </property>
       <property name="text">
        <string>&lt;font color=&quot;#7BA6B4&quot; &gt;Etat de la livraison</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_12">
+      <property name="geometry">
+       <rect>
+        <x>830</x>
+        <y>320</y>
+        <width>75</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">image: url(:/PICS/colis.png);
+border: none;</string>
+      </property>
+      <property name="text">
+       <string/>
       </property>
      </widget>
      <widget class="QWidget" name="">
